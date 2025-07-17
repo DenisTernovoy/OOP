@@ -12,3 +12,16 @@ def product() -> Product:
 @pytest.fixture
 def category() -> Category:
     return Category("Овощи", "Весовые товары", [Product("Морковь", "Мытая морковь", 30, 100)])
+
+
+@pytest.fixture
+def json_data() -> list:
+    return [
+        {
+            "name": "Телефоны",
+            "description": "Средства связи",
+            "products": [
+                {"name": "Samsung", "description": "Телефон", "price": 5000.0, "quantity": 100},
+            ],
+        }
+    ]
