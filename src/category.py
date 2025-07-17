@@ -5,13 +5,13 @@ class Category:
     description: str
     products: list
 
-    quantity_of_categories: int = 0
-    quantity_of_products: int = 0
+    category_count: int = 0
+    product_count: int = 0
 
     def __init__(self, name: str, description: str, products: list) -> None:
         self.name = name
         self.description = description
         self.products = products
 
-        Category.quantity_of_categories += 1
-        Category.quantity_of_products += len(products)
+        Category.category_count += 1
+        Category.product_count += len(products)
