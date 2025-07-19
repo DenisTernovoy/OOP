@@ -6,7 +6,7 @@ class Product:
 
     name: str
     description: str
-    price: float
+    __price: float
     quantity: int
 
     __list_of_products: list = []
@@ -14,7 +14,7 @@ class Product:
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
         Product.__list_of_products.append(self.__dict__)
@@ -30,3 +30,18 @@ class Product:
                 return None
 
         return Product(**dict_data)
+
+    @property
+    def price(self) -> float:
+        return self.__price
+
+    @price.setter
+    def price(self, new_price: float) -> None:
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+        elif new_price < self.__price:
+            user_input = input("Подтвердите, что цена понижается (y/n): ").lower().strip()
+            if user_input == "y":
+                self.__price = new_price
+        else:
+            self.__price = new_price
