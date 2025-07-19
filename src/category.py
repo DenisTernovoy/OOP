@@ -6,7 +6,7 @@ class Category:
 
     name: str
     description: str
-    products: list
+    __products: list
 
     category_count: int = 0
     product_count: int = 0
@@ -19,12 +19,11 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-
-    def add_product(self, product: Product):
+    def add_product(self, product: Product) -> None:
         self.__products.append(product)
 
     @property
-    def products(self):
+    def products(self) -> str:
         text_products = ""
         for i in self.__products:
             text_products += f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.\n"
