@@ -11,7 +11,7 @@ def product() -> Product:
 
 @pytest.fixture
 def category() -> Category:
-    return Category("Овощи", "Весовые товары", [Product("Морковь", "Мытая морковь", 30, 100)])
+    return Category("Овощи", "Весовые товары", [Product("Перец", "Красный", 80, 80)])
 
 
 @pytest.fixture

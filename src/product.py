@@ -23,8 +23,8 @@ class Product:
     def new_product(cls, dict_data: dict) -> Any:
         for i in cls.__list_of_products:
             if dict_data["name"] == i["name"]:
-                if dict_data["price"] > i["price"]:
-                    i["price"] = dict_data["price"]
+                if dict_data["price"] > i["_Product__price"]:
+                    i["_Product__price"] = dict_data["price"]
                 i["quantity"] += dict_data["quantity"]
 
                 return None

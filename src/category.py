@@ -25,8 +25,7 @@ class Category:
 
     @property
     def products(self) -> str:
-        text_products = ""
-        for i in self.__products:
-            text_products += f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт.\n"
-
-        return text_products
+        products_list = [
+            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products
+        ]
+        return "\n".join(products_list)
