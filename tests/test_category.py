@@ -16,4 +16,4 @@ def test_category_add_product(category: Category, product: Product) -> None:
 
 
 def test_category_products(category: Category) -> None:
-    assert category.products == "Перец, 80 руб. Остаток: 80 шт.\n"
+    assert category.products == "Перец, 80 руб. Остаток: 80 шт."
