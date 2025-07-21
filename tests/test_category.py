@@ -17,3 +17,11 @@ def test_category_add_product(category: Category, product: Product) -> None:
 
 def test_category_products(category: Category) -> None:
     assert category.products == "Перец, 80 руб. Остаток: 80 шт."
+
+
+def test_category_len(category: Category) -> None:
+    assert len(category) == 80
+
+
+def test_category_str(category: Category) -> None:
+    assert str(category) == "Овощи, количество продуктов: 80 шт."

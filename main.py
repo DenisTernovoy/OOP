@@ -1,5 +1,6 @@
 from src.product import Product
 from src.category import Category
+from src.iterator import CategoryIterator
 
 
 if __name__ == '__main__':
@@ -24,3 +25,7 @@ if __name__ == '__main__':
     print(product1 + product2)
     print(product1 + product3)
     print(product2 + product3)
+
+    cat_iter = CategoryIterator(category1)
+    for i in cat_iter:
+        print(i)
