@@ -39,3 +39,8 @@ def test_product_price_3(product: Product) -> None:
         product.price = 10
 
     assert product.price == 10
+
+
+def test_product_add(product: Product, product1: Product) -> None:
+    res = product + product1
+    assert res == 8000
