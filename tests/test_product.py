@@ -1,7 +1,11 @@
 from typing import Any
 from unittest.mock import patch
 
+import pytest
+
+from src.lawngrass import LawnGrass
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 def test_product(product: Product) -> None:
@@ -44,3 +48,9 @@ def test_product_price_3(product: Product) -> None:
 def test_product_add(product: Product, product1: Product) -> None:
     res = product + product1
     assert res == 8000
+
+
+def test_product_add_2(smartphone: Smartphone, lawngrass: LawnGrass) -> None:
+
+    with pytest.raises(TypeError):
+        smartphone + lawngrass

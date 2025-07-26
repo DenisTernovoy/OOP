@@ -1,3 +1,8 @@
+from typing import Any
+from unittest.mock import patch
+
+import pytest
+
 from src.category import Category
 from src.product import Product
 
@@ -13,6 +18,16 @@ def test_category_add_product(category: Category, product: Product) -> None:
     product_count = category.product_count
     category.add_product(product)
     assert category.product_count == product_count + 1
+
+
+@patch("tests.conftest.product")
+def test_category_add_product_2(mock_data: Any, category: Category, product: Product) -> None:
+    Category.category_count = 0
+
+    mock_data.return_value = "Не продукт"
+
+    with pytest.raises(TypeError):
+        category.add_product(mock_data)
 
 
 def test_category_products(category: Category) -> None:
