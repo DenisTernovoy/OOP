@@ -1,9 +1,10 @@
 from typing import Any
 
 from src.base_product import BaseProduct
+from src.mixin import Mixin
 
 
-class Product(BaseProduct):
+class Product(Mixin, BaseProduct):
     """Класс, содержащий информацию о продукте: название, описание, цена и количество"""
 
     name: str
@@ -20,6 +21,7 @@ class Product(BaseProduct):
         self.quantity = quantity
 
         Product.__list_of_products.append(self.__dict__)
+        super().__init__()
 
     def __str__(self) -> str:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
