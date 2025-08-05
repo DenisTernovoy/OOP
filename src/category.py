@@ -1,7 +1,8 @@
+from src.base_order_category import BaseOrderCategory
 from src.product import Product
 
 
-class Category:
+class Category(BaseOrderCategory):
     """Класс, содержащий информацию о категории продуктов: название, описание, список товаров(products)"""
 
     name: str
