@@ -36,7 +36,7 @@ class Category(BaseOrderCategory):
         else:
             raise TypeError
 
-    def middle_price(self):
+    def middle_price(self) -> float:
         total_price = 0
 
         for product in self.__products:
