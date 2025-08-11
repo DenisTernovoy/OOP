@@ -40,3 +40,12 @@ def test_category_len(category: Category) -> None:
 
 def test_category_str(category: Category) -> None:
     assert str(category) == "Овощи, количество продуктов: 80 шт."
+
+
+def test_category_invalid() -> None:
+    cat1 = Category("Телефоны", "Мобильные", [])
+    assert cat1.middle_price() == 0
+
+
+def test_category_middle_price(category1: Category) -> None:
+    assert category1.middle_price() == 70.0

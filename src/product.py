@@ -15,6 +15,9 @@ class Product(Mixin, BaseProduct):
     __list_of_products: list = []
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
+        if quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+
         self.name = name
         self.description = description
         self.__price = price

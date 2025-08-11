@@ -54,3 +54,11 @@ def test_product_add_2(smartphone: Smartphone, lawngrass: LawnGrass) -> None:
 
     with pytest.raises(TypeError):
         smartphone + lawngrass
+
+
+def test_new_product_invalid() -> None:
+
+    with pytest.raises(ValueError) as error:
+        Product("Чеснок", "Сушеный", 10.0, 0)
+
+    assert str(error.value) == "Товар с нулевым количеством не может быть добавлен"

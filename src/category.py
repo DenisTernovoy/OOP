@@ -36,6 +36,19 @@ class Category(BaseOrderCategory):
         else:
             raise TypeError
 
+    def middle_price(self) -> float:
+        total_price = 0
+
+        for product in self.__products:
+            total_price += product.price
+
+        try:
+            average = total_price / len(self.__products)
+        except ZeroDivisionError:
+            average = 0
+
+        return average
+
     @property
     def products(self) -> str:
         products_list = [str(product) for product in self.__products]
